@@ -1,4 +1,6 @@
+import 'package:covid_app/widgets/dial_for_help_card.dart';
 import 'package:covid_app/widgets/main_cards.dart';
+import 'package:covid_app/widgets/prevention_cards.dart';
 import 'package:flutter/material.dart';
 import 'package:covid_app/constants.dart';
 import 'package:flutter/services.dart';
@@ -11,6 +13,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    //Prevention Gradient
+    final Shader kLinearGradient = LinearGradient(
+      colors: <Color>[Colors.green, Colors.green[800]],
+    ).createShader(Rect.fromLTWH(70.0, 100.0, 200.0, 50.0));
+
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(
         statusBarColor: Colors.white,
@@ -50,17 +57,6 @@ class _HomePageState extends State<HomePage> {
                 ],
                 expandedHeight: 100,
               ),
-              // SliverGrid(
-              //   delegate: SliverChildBuilderDelegate(
-              //     (context, index) => MainCard(index: index),
-              //     childCount: 4,
-              //   ),
-              //   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-              //     crossAxisSpacing: 5,
-              //     mainAxisSpacing: 20,
-              //     maxCrossAxisExtent: 418,
-              //   ),
-              // ),
               SliverToBoxAdapter(
                 child: MainCardContainer(),
               ),
@@ -73,29 +69,21 @@ class _HomePageState extends State<HomePage> {
               ),
               SliverToBoxAdapter(
                 child: Container(
-                  // alignment: Alignment.center,
-                  // color: Colors.teal,
+                  margin: EdgeInsets.all(10),
+                  alignment: Alignment.center,
                   child: Text(
                     'Prevention',
-                    style: Constants.kHomePageSectionTitleStyle,
+                    style: Constants.kHomePageSectionTitleStyle.copyWith(
+                      foreground: Paint()..shader = kLinearGradient,
+                    ),
                   ),
                 ),
               ),
               SliverToBoxAdapter(
-                child: Row(
-                  children: [
-                    Icon(Icons.accessibility_new),
-                    Icon(Icons.accessibility_new),
-                    Icon(Icons.accessibility_new),
-                  ],
-                ),
+                child: PreventionCard(),
               ),
               SliverToBoxAdapter(
-                child: Container(
-                  alignment: Alignment.center,
-                  color: Colors.teal,
-                  child: Text('Dial For Help'),
-                ),
+                child: DialForHelpCard(),
               ),
             ],
           ),

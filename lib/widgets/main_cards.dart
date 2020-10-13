@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:covid_app/constants.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // class MainCard extends StatefulWidget {
 //   final int index;
@@ -39,18 +40,24 @@ class _MainCardContainerState extends State<MainCardContainer> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               EachCardContainer(
-                icon: Icons.directions_run,
+                icon: FaIcon(
+                  FontAwesomeIcons.solidChartBar,
+                  size: 18,
+                  color: Colors.orange,
+                ),
                 stat: 123,
                 title: 'Confirmed Cases',
                 avatarColor: Colors.orange[100],
-                iconColor: Colors.orange,
               ),
               EachCardContainer(
-                icon: Icons.directions_run,
+                icon: FaIcon(
+                  FontAwesomeIcons.skullCrossbones,
+                  size: 18,
+                  color: Colors.pink,
+                ),
                 stat: 123,
                 title: 'Total Death',
                 avatarColor: Colors.pink[100],
-                iconColor: Colors.pink,
               ),
             ],
           ),
@@ -58,18 +65,24 @@ class _MainCardContainerState extends State<MainCardContainer> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               EachCardContainer(
-                icon: Icons.directions_run,
+                icon: FaIcon(
+                  FontAwesomeIcons.virusSlash,
+                  size: 18,
+                  color: Colors.green,
+                ),
                 stat: 123,
                 title: 'Recoveries',
                 avatarColor: Colors.green[100],
-                iconColor: Colors.green,
               ),
               EachCardContainer(
-                icon: Icons.directions_run,
+                icon: FaIcon(
+                  FontAwesomeIcons.diagnoses,
+                  size: 18,
+                  color: Colors.purple,
+                ),
                 stat: 123,
                 title: 'New Cases',
                 avatarColor: Colors.purple[100],
-                iconColor: Colors.purple,
               ),
             ],
           ),
@@ -81,13 +94,12 @@ class _MainCardContainerState extends State<MainCardContainer> {
 
 // Contents of Each Card
 class EachCardContainer extends StatelessWidget {
-  final IconData icon;
+  final FaIcon icon;
   final String title;
   final int stat;
-  final Color avatarColor, iconColor;
+  final Color avatarColor;
 
-  const EachCardContainer(
-      {this.icon, this.title, this.stat, this.avatarColor, this.iconColor});
+  const EachCardContainer({this.icon, this.title, this.stat, this.avatarColor});
 
   @override
   Widget build(BuildContext context) {
@@ -104,11 +116,7 @@ class EachCardContainer extends StatelessWidget {
                 CircleAvatar(
                   maxRadius: 15,
                   backgroundColor: avatarColor,
-                  child: Icon(
-                    icon,
-                    color: iconColor,
-                    size: 19,
-                  ),
+                  child: icon,
                 ),
                 Expanded(
                   child: Text(
@@ -131,3 +139,9 @@ class EachCardContainer extends StatelessWidget {
     );
   }
 }
+
+// Icon(
+//   icon,
+//   color: iconColor,
+//   size: 19,
+// ),
