@@ -2,28 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:covid_app/constants.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-// class MainCard extends StatefulWidget {
-//   final int index;
-
-//   MainCard({this.index});
-//   @override
-//   _MainCardState createState() => _MainCardState();
-// }
-
-// class _MainCardState extends State<MainCard> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       margin: EdgeInsets.only(left: 10, right: 10),
-//       alignment: Alignment.center,
-//       decoration: Constants.kMainCardDecoration.copyWith(
-//         color: widget.index % 2 == 0 ? Colors.red : Colors.green,
-//       ),
-//       child: Text('Grid ${widget.index + 1}'),
-//     );
-//   }
-// }
-
 class MainCardContainer extends StatefulWidget {
   @override
   _MainCardContainerState createState() => _MainCardContainerState();
@@ -47,6 +25,7 @@ class _MainCardContainerState extends State<MainCardContainer> {
                 ),
                 stat: 123,
                 title: 'Confirmed Cases',
+                decoration: Constants.kEachCardContainerDecoration1,
                 avatarColor: Colors.orange[100],
               ),
               EachCardContainer(
@@ -57,6 +36,7 @@ class _MainCardContainerState extends State<MainCardContainer> {
                 ),
                 stat: 123,
                 title: 'Total Death',
+                decoration: Constants.kEachCardContainerDecoration2,
                 avatarColor: Colors.pink[100],
               ),
             ],
@@ -73,6 +53,7 @@ class _MainCardContainerState extends State<MainCardContainer> {
                 stat: 123,
                 title: 'Recoveries',
                 avatarColor: Colors.green[100],
+                decoration: Constants.kEachCardContainerDecoration3,
               ),
               EachCardContainer(
                 icon: FaIcon(
@@ -82,6 +63,7 @@ class _MainCardContainerState extends State<MainCardContainer> {
                 ),
                 stat: 123,
                 title: 'New Cases',
+                decoration: Constants.kEachCardContainerDecoration4,
                 avatarColor: Colors.purple[100],
               ),
             ],
@@ -98,8 +80,10 @@ class EachCardContainer extends StatelessWidget {
   final String title;
   final int stat;
   final Color avatarColor;
+  final BoxDecoration decoration;
 
-  const EachCardContainer({this.icon, this.title, this.stat, this.avatarColor});
+  const EachCardContainer(
+      {this.icon, this.title, this.stat, this.avatarColor, this.decoration});
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +92,7 @@ class EachCardContainer extends StatelessWidget {
         height: 120,
         margin: EdgeInsets.all(7),
         padding: EdgeInsets.all(10),
-        decoration: Constants.kEachCardContainerDecoration,
+        decoration: decoration,
         child: Column(
           children: [
             Row(
@@ -139,9 +123,3 @@ class EachCardContainer extends StatelessWidget {
     );
   }
 }
-
-// Icon(
-//   icon,
-//   color: iconColor,
-//   size: 19,
-// ),

@@ -12,13 +12,46 @@ class Constants {
     borderRadius: BorderRadius.all(Radius.circular(15)),
   );
 
-  static var kEachCardContainerDecoration = BoxDecoration(
-    color: Colors.white,
+  static var kEachCardContainerDecoration1 = BoxDecoration(
+    color: Colors.orangeAccent,
     boxShadow: [
       BoxShadow(
-        color: Colors.grey[400],
+        color: Colors.orange,
         offset: Offset(-1, 2),
-        blurRadius: 1.0,
+        blurRadius: 2.0,
+      )
+    ],
+    borderRadius: BorderRadius.all(Radius.circular(10)),
+  );
+  static var kEachCardContainerDecoration2 = BoxDecoration(
+    color: Colors.pinkAccent,
+    boxShadow: [
+      BoxShadow(
+        color: Colors.pink,
+        offset: Offset(-1, 2),
+        blurRadius: 2.0,
+      )
+    ],
+    borderRadius: BorderRadius.all(Radius.circular(10)),
+  );
+  static var kEachCardContainerDecoration3 = BoxDecoration(
+    color: Colors.greenAccent,
+    boxShadow: [
+      BoxShadow(
+        color: Colors.green,
+        offset: Offset(-1, 2),
+        blurRadius: 2.0,
+      )
+    ],
+    borderRadius: BorderRadius.all(Radius.circular(10)),
+  );
+  static var kEachCardContainerDecoration4 = BoxDecoration(
+    color: Colors.purpleAccent,
+    boxShadow: [
+      BoxShadow(
+        color: Colors.purple,
+        offset: Offset(-1, 2),
+        blurRadius: 2.0,
       )
     ],
     borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -48,5 +81,17 @@ class Constants {
       stops: [0, 1, 2],
       tileMode: TileMode.clamp,
     ),
+  );
+
+  static const kDialForHelpTextStyle = TextStyle(
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+    fontSize: 30,
+  );
+
+  static const kDialForHelpDescTextStyle = TextStyle(
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+    fontSize: 25,
   );
 }

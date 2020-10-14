@@ -4,6 +4,7 @@ import 'package:covid_app/widgets/prevention_cards.dart';
 import 'package:flutter/material.dart';
 import 'package:covid_app/constants.dart';
 import 'package:flutter/services.dart';
+import 'package:line_icons/line_icons.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -22,6 +23,8 @@ class _HomePageState extends State<HomePage> {
       value: SystemUiOverlayStyle(
         statusBarColor: Colors.white,
         statusBarIconBrightness: Brightness.dark,
+        systemNavigationBarColor: Colors.white,
+        systemNavigationBarIconBrightness: Brightness.dark,
       ),
       child: Scaffold(
         backgroundColor: Colors.white,
