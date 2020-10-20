@@ -4,6 +4,7 @@ import 'package:covid_app/widgets/prevention_cards.dart';
 import 'package:flutter/material.dart';
 import 'package:covid_app/constants.dart';
 import 'package:flutter/services.dart';
+import 'package:covid_app/covidApi/get_data.dart';
 import 'package:line_icons/line_icons.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,6 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  String dropdownValue = 'Select State';
   @override
   Widget build(BuildContext context) {
     //Prevention Gradient
@@ -38,11 +40,21 @@ class _HomePageState extends State<HomePage> {
                 iconTheme: IconThemeData(color: Colors.green[900]),
                 leading: null,
                 backgroundColor: Colors.white,
-                title: Text(
-                  'Country',
-                  style: TextStyle(
-                    color: Colors.black,
-                  ),
+                title: DropdownButton(
+                  value: dropdownValue,
+                  items: <String>['Select State', 'Karnataka', 'Andhra']
+                      .map<DropdownMenuItem<String>>(
+                        (String state) => DropdownMenuItem<String>(
+                          value: state,
+                          child: Text(state),
+                        ),
+                      )
+                      .toList(),
+                  onChanged: (String selectedValue) {
+                    setState(() {
+                      dropdownValue = selectedValue;
+                    });
+                  },
                 ),
                 centerTitle: true,
                 actions: <Widget>[

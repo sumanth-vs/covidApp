@@ -94,6 +94,7 @@ class EachCardContainer extends StatelessWidget {
         padding: EdgeInsets.all(10),
         decoration: decoration,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Row(
               children: [
@@ -111,12 +112,13 @@ class EachCardContainer extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(height: 20),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('$stat'),
               ],
             ),
-            Text('People'),
           ],
         ),
       ),
